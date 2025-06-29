@@ -8,13 +8,14 @@
 html, body {
     height: 100%;
     width: 100%;
+    background-color: black;
 }
 
 .container {
     position: relative;
     height: 100%;
     width: 100%;
-    background-color: #fc6885;
+    background-color: #000000;
     overflow: hidden;
 }
 
@@ -23,7 +24,7 @@ html, body {
     height: 100px;
     top: 80%;
     opacity: 0;
-    filter: drop-shadow(0 0 20px white);
+    /* filter: drop-shadow(0 0 20px black); */
     animation: hiddenHeart 3.1s linear forwards,flyHeart 4s ease-in-out calc(var(--time) + 3.1s) infinite;
 }
 
@@ -201,12 +202,12 @@ html, body {
     content: "";
     height: 200px;
     width: 200px;
-    background-color: #ffccd5;
+    background-color: #cbcbcb;
     border-radius: 50%;
-    box-shadow: 120px -20px #ffccd5, 240px -40px #ffccd5, 360px -20px #ffccd5,
-    480px 0px #ffccd5, 600px -10px #ffccd5, 720px 10px #ffccd5, 840px 20px #ffccd5, 
-    960px 0px #ffccd5, 1080px 40px #ffccd5, 1200px 20px #ffccd5, 1320px 0px #ffccd5,
-    1440px -20px #ffccd5, 1560px 0px #ffccd5;
+    box-shadow: 120px -20px #cbcbcb, 240px -40px #cbcbcb, 360px -20px #cbcbcb,
+    480px 0px #cbcbcb, 600px -10px #cbcbcb, 720px 10px #cbcbcb, 840px 20px #cbcbcb, 
+    960px 0px #cbcbcb, 1080px 40px #cbcbcb, 1200px 20px #cbcbcb, 1320px 0px #cbcbcb,
+    1440px -20px #cbcbcb, 1560px 0px #cbcbcb;
     transition: .8s;
     transition-delay: 1.3s;
     animation: animateClou1 3s ease-in-out 1.5s infinite;
@@ -239,16 +240,38 @@ html, body {
     font-weight: 400;
     font-style: normal;
     font-size: 120px;
-    color: pink;
+    color: #b5d4f4;
+    background-image: url('./img/10.jpg');
+    background-size: cover;
+    background-position: center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    /* Bỏ shadow để nổi bật texture */
+    text-shadow: none;
+    /* Giữ animation xuất hiện và floating */
+    animation: appearTitle 2s linear 3.1s forwards, floatingWords 4s ease-in-out infinite;
     height: fit-content;
     width: fit-content;
-    display: flex;
+    display: flex;  
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    text-shadow: 0 0 20px white;
-    animation: appearTitle 2s linear 3.1s forwards, floatingWords 4s ease-in-out infinite;
-    
+}
+
+/* Keyframes cho hiệu ứng glow ánh trăng nhịp nhàng */
+@keyframes moonGlow {
+    0%, 100% {
+        text-shadow:
+            0 0 10px #91c2e8,
+            0 0 20px #e0f8ff,
+            0 0 30px #91c2e8;
+    }
+    50% {
+        text-shadow:
+            0 0 20px #91c2e8,
+            0 0 30px #e0f8ff,
+            0 0 40px #91c2e8;
+    }
 }
 
 .container .btnBox {
@@ -279,14 +302,15 @@ html, body {
 }
 
 .cloudBtn {
-    position: relative;
+    /* position: relative;
     height: 100px;
     width: 100px;
-    background-color: #fc6885;
+    background-color: #ffffff;
     border-radius: 50%;
-    box-shadow: 60px 0 #fc6885, 120px 0 #fc6885, 180px 0 #fc6885, 240px 0 #fc6885,
-    300px 0 #fc6885, 300px 60px #fc6885, 240px 60px #fc6885, 180px 60px #fc6885,
-    120px 60px #fc6885, 60px 60px #fc6885, 0 60px #fc6885;
+    box-shadow: 60px 0 #ffffff, 120px 0 #ffffff, 180px 0 #ffffff, 240px 0 #ffffff,
+    300px 0 #ffffff, 300px 60px #ffffff, 240px 60px #ffffff, 180px 60px #ffffff,
+    120px 60px #ffffff, 60px 60px #ffffff, 0 60px #ffffff; */
+    display: none;
 }
 
 .cloudBtn::before {
@@ -297,16 +321,16 @@ html, body {
     transform: translate(-50%, -50%);
     height: 80px;
     width: 80px;
-    background-color: white;
+    background-color: #08012b;
     border-radius: 50%;
-    box-shadow: 60px 0 white, 120px 0 white, 180px 0 white, 240px 0 white,
-    300px 0 white, 300px 60px white, 240px 60px white, 180px 60px white,
-    120px 60px white, 60px 60px white, 0 60px white;
+    box-shadow: 60px 0 #08012b, 120px 0 #08012b, 180px 0 #08012b, 240px 0 #08012b,
+    300px 0 #08012b, 300px 60px #08012b, 240px 60px #08012b, 180px 60px #08012b,
+    120px 60px #08012b, 60px 60px #08012b, 0 60px #08012b;
 }
 
 .openBtn {
     position: absolute;
-    top: 50%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
@@ -314,11 +338,15 @@ html, body {
     font-family: "Rubik Glitch Pop", system-ui;
     font-weight: 400;
     font-style: normal;
-    font-size: 40px;
-    color: #fc6885;
+    font-size: 35px;
+    color: #ffff;
     background-color: transparent;
+    background-image: url('./img/1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-clip: text;
+    -webkit-background-clip: text;
     border: none;
-    text-shadow: 0 0 10px pink;
 }
 
 .openBtn:hover {
@@ -392,14 +420,14 @@ html, body {
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: #f35553;
+    background-color: #bfceff;
     border-radius: inherit;
     transition: .5s;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 10px lightgray;
-    border-left: 10px solid #c9413f;
+    border-left: 10px solid #bfceff;
 }
 
 .boxShadow {
@@ -410,45 +438,29 @@ html, body {
 
 .boxTitleCard {
     position: relative;
-    height: 300px;
-    width: 300px;
-    display: flex;
-    justify-content: center;
-    background-color: white;
-    clip-path: polygon(10% 0, 35% 0, 50% 23%, 65% 0, 90% 0, 100% 30%, 50% 100%, 0 30%);
+    height: 360px;
+    width: 360px;
+    transform: translate(-5px, -20px);
+    /* dùng ảnh mặt trăng làm nền, bo tròn thành circle */
+    background: url('./img/6.jpg') center/cover no-repeat;
+    border-radius: 50%;
+    /* loại bỏ clip-path hình tim */
+    clip-path: none;
+    display: block;
 }
 
-.boxTitleCard::before {
-    position: absolute;
-    content: "";
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 280px;
-    width: 280px;
-    background-color: #f35553;
-    clip-path: polygon(10% 0, 35% 0, 50% 23%, 65% 0, 90% 0, 100% 30%, 50% 100%, 0 30%);
-}
-
+/* Ẩn các pseudo-element tim cũ */
+.boxTitleCard::before,
 .boxTitleCard::after {
-    position: absolute;
-    content: "";
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 250px;
-    width: 250px;
-    background-color: white;
-    clip-path: polygon(10% 0, 35% 0, 50% 23%, 65% 0, 90% 0, 100% 30%, 50% 100%, 0 30%);
+    display: none;
 }
-
 
 .titleCard {
     font-family: "Protest Revolution", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 60px;
-    color: #f35553;
+    color: #bfceff;
     margin-top: 80px;
 }
 
@@ -458,11 +470,11 @@ html, body {
     left: 0;
     transform: rotateY(180deg);
     backface-visibility: hidden;
-    background-color: #f35553;
+    background-color: #bfceff;
     height: 100%;
     width: 100%;
     border-radius: inherit;
-    border-right: 10px solid #c9413f;
+    border-right: 10px solid #bfceff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -495,12 +507,12 @@ html, body {
     left: 50%;
     height: 100%;
     width: 50%;
-    background-color: #f35553;
+    background-color: #bfceff;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-left: 10px solid #c9413f;
+    border-left: 10px solid #bfceff;
     transition: .5s;
 }
 
@@ -520,7 +532,7 @@ html, body {
 }
 
 .rightContent::-webkit-scrollbar-thumb {
-    background-color: #d34745;
+    background-color: #bfceff;
 }
 
 .letterContent {
@@ -539,7 +551,7 @@ html, body {
         transform-style: preserve-3d;
         transform: rotateY(-180deg);
         transform-origin: left;
-        background-color: red;
+        background-color: #bfceff;
         transition: .5s;
     }
 
@@ -609,4 +621,21 @@ html, body {
     100% {
         top: 50%;
     }
+}
+
+/* Keyframes cho hiệu ứng shimmer */
+@keyframes shimmer {
+    0% { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.cardValentine .left .leftBack {
+    overflow: hidden;      /* cắt phần tràn ra */
+}
+
+.cardValentine .left .leftBack .Moon {
+    width: 90%;           /* cho ảnh phủ hết khung */
+    height: 90%;          
+    object-fit: cover;     /* giữ tỉ lệ, cắt vừa khung */
+    display: block;        /* tránh whitespace */
 }
